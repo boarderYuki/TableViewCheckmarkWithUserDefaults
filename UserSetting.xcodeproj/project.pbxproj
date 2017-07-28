@@ -12,6 +12,7 @@
 		B6EB2D421F2AEE47007DDE57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6EB2D401F2AEE47007DDE57 /* Main.storyboard */; };
 		B6EB2D441F2AEE47007DDE57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6EB2D431F2AEE47007DDE57 /* Assets.xcassets */; };
 		B6EB2D471F2AEE47007DDE57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6EB2D451F2AEE47007DDE57 /* LaunchScreen.storyboard */; };
+		B6EB2D4F1F2AEE94007DDE57 /* words.json in Resources */ = {isa = PBXBuildFile; fileRef = B6EB2D4E1F2AEE94007DDE57 /* words.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		B6EB2D431F2AEE47007DDE57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6EB2D461F2AEE47007DDE57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6EB2D481F2AEE47007DDE57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6EB2D4E1F2AEE94007DDE57 /* words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = words.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 			children = (
 				B6EB2D3B1F2AEE47007DDE57 /* UserSetting */,
 				B6EB2D3A1F2AEE47007DDE57 /* Products */,
+				B6EB2D4E1F2AEE94007DDE57 /* words.json */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,7 +99,7 @@
 				TargetAttributes = {
 					B6EB2D381F2AEE47007DDE57 = {
 						CreatedOnToolsVersion = 8.3.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -125,6 +128,7 @@
 			files = (
 				B6EB2D471F2AEE47007DDE57 /* LaunchScreen.storyboard in Resources */,
 				B6EB2D441F2AEE47007DDE57 /* Assets.xcassets in Resources */,
+				B6EB2D4F1F2AEE94007DDE57 /* words.json in Resources */,
 				B6EB2D421F2AEE47007DDE57 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,10 +266,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = UserSetting/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hi-yuki.UserSetting";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -274,10 +281,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = UserSetting/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hi-yuki.UserSetting";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
