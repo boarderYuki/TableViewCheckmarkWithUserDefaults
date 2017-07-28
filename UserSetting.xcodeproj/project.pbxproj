@@ -13,6 +13,8 @@
 		B6EB2D441F2AEE47007DDE57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6EB2D431F2AEE47007DDE57 /* Assets.xcassets */; };
 		B6EB2D471F2AEE47007DDE57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6EB2D451F2AEE47007DDE57 /* LaunchScreen.storyboard */; };
 		B6EB2D4F1F2AEE94007DDE57 /* words.json in Resources */ = {isa = PBXBuildFile; fileRef = B6EB2D4E1F2AEE94007DDE57 /* words.json */; };
+		B6EB2D511F2B2D3C007DDE57 /* FirstWordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EB2D501F2B2D3C007DDE57 /* FirstWordTableViewController.swift */; };
+		B6EB2D531F2B51AD007DDE57 /* SetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EB2D521F2B51AD007DDE57 /* SetTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		B6EB2D461F2AEE47007DDE57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6EB2D481F2AEE47007DDE57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6EB2D4E1F2AEE94007DDE57 /* words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = words.json; sourceTree = "<group>"; };
+		B6EB2D501F2B2D3C007DDE57 /* FirstWordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstWordTableViewController.swift; sourceTree = "<group>"; };
+		B6EB2D521F2B51AD007DDE57 /* SetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				B6EB2D3C1F2AEE47007DDE57 /* AppDelegate.swift */,
 				B6EB2D3E1F2AEE47007DDE57 /* ViewController.swift */,
 				B6EB2D401F2AEE47007DDE57 /* Main.storyboard */,
+				B6EB2D521F2B51AD007DDE57 /* SetTableViewController.swift */,
+				B6EB2D501F2B2D3C007DDE57 /* FirstWordTableViewController.swift */,
 				B6EB2D431F2AEE47007DDE57 /* Assets.xcassets */,
 				B6EB2D451F2AEE47007DDE57 /* LaunchScreen.storyboard */,
 				B6EB2D481F2AEE47007DDE57 /* Info.plist */,
@@ -141,6 +147,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6EB2D3F1F2AEE47007DDE57 /* ViewController.swift in Sources */,
+				B6EB2D511F2B2D3C007DDE57 /* FirstWordTableViewController.swift in Sources */,
+				B6EB2D531F2B51AD007DDE57 /* SetTableViewController.swift in Sources */,
 				B6EB2D3D1F2AEE47007DDE57 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

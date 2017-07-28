@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
 
     let topW = "word_03"
-    let bottomW = "word_05"
+    let bottomW = "word_02"
     
     override func viewDidLoad() {
         super.viewDidLoad()
