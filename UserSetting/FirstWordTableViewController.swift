@@ -91,7 +91,7 @@ class FirstWordTableViewController: UITableViewController {
             if indexP1 != nil {
                 selectedIndexPath = indexP1!
             }
-            tableView.cellForRow(at: indexP1!)?.accessoryType = .none
+            //tableView.cellForRow(at: indexP1!)?.accessoryType = .none
         }
 
         
@@ -100,7 +100,6 @@ class FirstWordTableViewController: UITableViewController {
             return
         } else {
             print("인덱스와 셀렉트가 다름")
-            
             tableView.cellForRow(at: selectedIndexPath as IndexPath)?.accessoryType = .none
             
 
