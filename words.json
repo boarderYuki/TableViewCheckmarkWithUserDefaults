@@ -2,7 +2,7 @@
 {
     "data":
     {
-        "category": ["word_01", "word_02", "word_03", "word_04", "word_05"],
+        "category": ["random", "word_01", "word_02", "word_03", "word_04", "word_05", "word_06"],
         "word_01": ["1 word_01", "2 word_01", "3 word_01", "4 word_01", "5 word_01"],
         "word_02": ["1 word_02", "2 word_02", "3 word_02", "4 word_02", "5 word_02"],
         "word_03": ["1 word_03", "2 word_03", "3 word_03", "4 word_03", "5 word_03"],

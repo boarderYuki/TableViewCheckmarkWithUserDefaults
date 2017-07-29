@@ -11,10 +11,10 @@ import UIKit
 class FirstWordTableViewController: UITableViewController {
 
     var category = [String]()
+    let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//tableView.allowsMultipleSelection = false
         
         guard let path = Bundle.main.path(forResource: "words", ofType: "json") else { return }
         //print(path ?? "Not a real path")
@@ -30,7 +30,6 @@ class FirstWordTableViewController: UITableViewController {
                 if let nestedDictionary = dictionary["data"] as? [String: [String]] {
                     
                     category = nestedDictionary["category"]!
-
                 }
             }
             
@@ -39,8 +38,10 @@ class FirstWordTableViewController: UITableViewController {
             print(error)
         }
         
+        let keyNumber = userDefaults.integer(forKey: "SetFirstKeyword")
+        let f = category[keyNumber]
         
-        print(category.count)
+        print("ffff", f)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -63,66 +64,61 @@ class FirstWordTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
+        
+        let keyNumber = userDefaults.integer(forKey: "SetFirstKeyword")
+        let f = category[keyNumber]
+        
         cell.textLabel?.text = category[indexPath.row]
-        cell.detailTextLabel?.text = "ggg"
-        // Configure the cell...
-
+        
+        if cell.textLabel?.text == f {
+            cell.accessoryType = .checkmark
+            cell.textLabel?.text = category[keyNumber]
+            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        } else {
+            //cell.textLabel?.text = category[indexPath.row]
+        }
         return cell
     }
     
-
+    var selectedIndexPath = IndexPath(row: 0, section: 0)
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        
+        let data1 = userDefaults.object(forKey: "indexKey") as? NSData
+        let indexP1 = NSKeyedUnarchiver.unarchiveObject(with: data1! as Data) as! IndexPath
+        print(" indexP1 You selected cell #\(indexP1)!")
+        print(" indexPath You selected cell #\(indexPath.row)!")
+
+        
+        
+        if indexPath == selectedIndexPath as IndexPath{
+            print("인덱스와 셀렉트가 같음")
+            
+            return
+        } else {
+            print("인덱스와 셀렉트가 다름")
+            //tableView.cellForRow(at: selectedKey)?.accessoryType = .none
+            tableView.cellForRow(at: selectedIndexPath as IndexPath)?.accessoryType = .none
+            
+
+            
+            
+
+        }
+        let d = indexPath.row
+        userDefaults.set(d, forKey: "SetFirstKeyword")
+        
+        // 인덱스키 저장
+        let data = NSKeyedArchiver.archivedData(withRootObject: indexPath)
+        print("data", data)
+        userDefaults.set(data, forKey: "indexKey")
+        
+        
+        
+        userDefaults.synchronize()
+        tableView.reloadData()
+        selectedIndexPath = indexPath as IndexPath  // save the selected index path
+        print(" selectedIndexPath You selected cell #\(selectedIndexPath.row)!")
+        
     }
     
-    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        tableView.cellForRow(at: indexPath)?.accessoryType = .none
-    }
-    
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

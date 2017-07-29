@@ -10,13 +10,22 @@ import UIKit
 
 class SetTableViewController: UITableViewController {
 
+    @IBOutlet var settingListTable: UITableView!
     @IBOutlet weak var firstKeyword: UILabel!
-    let topW = "word_03"
+    let topW = ""
     let bottomW = "word_02"
+    var category = [String]()
+
+    let userDefaults = UserDefaults.standard
+                    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        firstKeyword.text = "gggg"
+
+
+        
+        
+        
         guard let path = Bundle.main.path(forResource: "words", ofType: "json") else { return }
         //print(path ?? "Not a real path")
         
@@ -29,9 +38,15 @@ class SetTableViewController: UITableViewController {
             if let dictionary = json as? [String: Any] {
                 
                 if let nestedDictionary = dictionary["data"] as? [String: [String]] {
+                    category = nestedDictionary["category"]!
+                    let topW = category[userDefaults.integer(forKey: "SetFirstKeyword")]
+                    
+                   
                     
                     guard let firstWordList = nestedDictionary[topW] else {return}
                     guard let secondWordList = nestedDictionary[bottomW] else {return}
+                    
+                    
                     
                     var firstOldList = firstWordList
                     var secondOldList = secondWordList
@@ -61,7 +76,7 @@ class SetTableViewController: UITableViewController {
                         secondLength -= 1
                     }
                     
-                    print(firstNewList)
+                    print("firstNewList", firstNewList)
                     print(secondNewList)
                     
                 }
@@ -75,9 +90,23 @@ class SetTableViewController: UITableViewController {
     }
 
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    override func viewWillAppear(_ animated: Bool) {
+        
+        
+        //if userDefaults.bool(forKey: "onBoardingComplete") {
+        //initialVC = sb.instantiateViewController(withIdentifier: "LoginView")
+        //}
+        
+    
+//        if (userDefaults.string(forKey: "SetFirstKeyword") != nil) {
+//            firstKeyword.text = userDefaults.string(forKey: "SetFirstKeyword")
+//        }
+        
+        let keyNumber = userDefaults.integer(forKey: "SetFirstKeyword")
+        firstKeyword.text = category[keyNumber]
+        print(keyNumber)
+        //settingListTable.reloadData()
     }
 
     // MARK: - Table view data source
