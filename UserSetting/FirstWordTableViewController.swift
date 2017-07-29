@@ -84,11 +84,14 @@ class FirstWordTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let data1 = userDefaults.object(forKey: "indexKey") as? NSData
-        let indexP1 = NSKeyedUnarchiver.unarchiveObject(with: data1! as Data) as! IndexPath
+        let indexP1 = NSKeyedUnarchiver.unarchiveObject(with: data1! as Data) as? IndexPath
         print(" indexP1 You selected cell #\(indexP1)!")
         print(" indexPath You selected cell #\(indexPath.row)!")
 
-        
+        if indexP1 != nil {
+            selectedIndexPath = indexP1!
+            
+        }
         
         if indexPath == selectedIndexPath as IndexPath{
             print("인덱스와 셀렉트가 같음")
@@ -96,7 +99,7 @@ class FirstWordTableViewController: UITableViewController {
             return
         } else {
             print("인덱스와 셀렉트가 다름")
-            //tableView.cellForRow(at: selectedKey)?.accessoryType = .none
+            tableView.cellForRow(at: indexP1!)?.accessoryType = .none
             tableView.cellForRow(at: selectedIndexPath as IndexPath)?.accessoryType = .none
             
 
