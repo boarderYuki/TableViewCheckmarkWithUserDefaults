@@ -50,11 +50,6 @@ class FirstWordTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -84,6 +79,7 @@ class FirstWordTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if userDefaults.object(forKey: "indexKey") != nil {
+            print("인덱스키 있음")
             let data1 = userDefaults.object(forKey: "indexKey") as? Data
             let indexP1 = NSKeyedUnarchiver.unarchiveObject(with: data1!) as? IndexPath
             
@@ -108,11 +104,11 @@ class FirstWordTableViewController: UITableViewController {
 
         }
         let d = indexPath.row
+        print("dddddd",d)
         userDefaults.set(d, forKey: "SetFirstKeyword")
         
         // 인덱스키 저장
         let data = NSKeyedArchiver.archivedData(withRootObject: indexPath)
-        print("data", data)
         userDefaults.set(data, forKey: "indexKey")
         
         

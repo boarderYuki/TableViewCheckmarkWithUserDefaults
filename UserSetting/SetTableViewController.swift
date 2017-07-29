@@ -105,7 +105,7 @@ class SetTableViewController: UITableViewController {
         
         let keyNumber = userDefaults.integer(forKey: "SetFirstKeyword")
         firstKeyword.text = category[keyNumber]
-        print(keyNumber)
+        print("keyNumber",keyNumber)
         //settingListTable.reloadData()
     }
 
