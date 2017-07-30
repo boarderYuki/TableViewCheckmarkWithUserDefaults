@@ -21,12 +21,10 @@ class SetTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        // JSON 파일로 카테고리 리스트 생성
         guard let path = Bundle.main.path(forResource: "words", ofType: "json") else { return }
-        
         let url = URL(fileURLWithPath: path)
         
-        // JSON 파일로 카테고리 리스트 생성
         do {
             let data = try Data(contentsOf: url)
             let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
