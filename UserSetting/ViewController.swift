@@ -59,21 +59,16 @@ class ViewController: UIViewController{
                         secondOldList.remove(at: randomNumber)
                         secondLength -= 1
                     }
-                    
                     print(firstNewList)
                     print(secondNewList)
-                    
                 }
             }
-            
             
         } catch {
             print(error)
         }
         
     }
-
-
 
 }
 
