@@ -80,12 +80,11 @@ class SetTableViewController: UITableViewController {
         }
     }
 
-
     // 선택된 카테고리명을 표시
     override func viewWillAppear(_ animated: Bool) {
         let keyNumber = userDefaults.integer(forKey: "SetFirstKeyword")
         firstKeyword.text = category[keyNumber]
         print("keyNumber",keyNumber)
     }
-
+    
 }
